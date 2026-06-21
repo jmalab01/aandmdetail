@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <met                    <h3>Interior Detailing</h3>
+                    <div class="service-description">ame="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A&M Detailing Services - Professional Auto Detailing in Louisville, KY">
+    <meta name="keywords" content="auto detailing, car wash, ceramic coating, paint protection, mobile detailing">
+    <title>Our Services - A&M Detailing | Louisville, KY</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="assets/images/logo/A&M.jpg" alt="A&M Detailing Logo" class="logo">
+                <span class="brand-name">A&M Detailing</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="index.html#reviews">Reviews</a></li>
+                <li><a href="#" id="navBookBtn" class="nav-book-btn">Book Now</a></li>
+                <li><a href="social.html">Social</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html#service-areas">Service Areas</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Hero -->
+    <section class="services-hero">
+        <div class="container">
+            <h1>Our Premium Services</h1>
+            <p>Professional detailing solutions tailored to your vehicle's needs</p>
+        </div>
+    </section>
+
+    <!-- Detailed Services -->
+    <section id="services" class="detailed-services">
+        <div class="container">
+            <div class="services-detail-grid">
+                <!-- Exterior Wash -->
+                <div class="service-detail-card">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-spray-can"></i>
+                    </div>
+                    <h3>Exterior Wash</h3>
+                    <div class="service-description">
+                        <p>Professional hand wash that safely removes dirt, grime, and contaminants from your vehicle's exterior. Our detailed washing process ensures every inch of your car is spotless.</p>
+                        <h4>Includes:</h4>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Two-bucket hand wash method</li>
+                            <li><i class="fas fa-check"></i> Wheel and tire cleaning</li>
+                            <li><i class="fas fa-check"></i> Rim detailing</li>
+                            <li><i class="fas fa-check"></i> Glass cleaning</li>
+                            <li><i class="fas fa-check"></i> Premium wax application</li>
+                            <li><i class="fas fa-check"></i> Final dry with microfiber towels</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="service-book-btn" onclick="openBookingModal(event)">Book This Service</a>
+                </div>
+
+                <!-- Interior Cleaning -->
+                <div class="service-detail-card">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <h3>Interior Cleaning</h3>
+                    <div class="service-description">
+                        <p>Deep interior cleaning that restores your car's inside to like-new condition. We remove dirt, dust, stains, and odors to create a fresh, clean environment.</p>
+                        <h4>Includes:</h4>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Complete vacuuming</li>
+                            <li><i class="fas fa-check"></i> Carpet and floor mat cleaning</li>
+                            <li><i class="fas fa-check"></i> Seat cleaning and conditioning</li>
+                            <li><i class="fas fa-check"></i> Door panel detailing</li>
+                            <li><i class="fas fa-check"></i> Dashboard and trim cleaning</li>
+                            <li><i class="fas fa-check"></i> Odor elimination</li>
+                            <li><i class="fas fa-check"></i> Air freshener</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="service-book-btn" onclick="openBookingModal(event)">Book This Service</a>
+                </div>
+
+                <!-- Full Detailing -->
+                <div class="service-detail-card featured">
+                    <div class="service-badge">Most Popular</div>
+                    <div class="service-detail-icon">
+                        <i class="fas fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3>Full Detailing</h3>
+                    <div class="service-description">
+                        <p>Our comprehensive detailing package that transforms your vehicle inside and out. Perfect for maintaining showroom quality or preparing for sale.</p>
+                        <h4>Includes:</h4>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Complete exterior wash & wax</li>
+                            <li><i class="fas fa-check"></i> Exterior trim conditioning</li>
+                            <li><i class="fas fa-check"></i> Full interior cleaning</li>
+                            <li><i class="fas fa-check"></i> Leather conditioning</li>
+                            <li><i class="fas fa-check"></i> Engine bay detailing</li>
+                            <li><i class="fas fa-check"></i> Clay bar treatment</li>
+                            <li><i class="fas fa-check"></i> Paint sealant application</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="service-book-btn" onclick="openBookingModal(event)">Book This Service</a>
+                </div>
+
+                <!-- Paint Protection -->
+                <div class="service-detail-card">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Paint Protection (Ceramic)</h3>
+                    <div class="service-description">
+                        <p>Professional ceramic coating application that provides long-lasting protection against UV rays, bird droppings, tree sap, and environmental contaminants.</p>
+                        <h4>Includes:</h4>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Full vehicle wash & dry</li>
+                            <li><i class="fas fa-check"></i> Paint decontamination</li>
+                            <li><i class="fas fa-check"></i> Professional ceramic coating</li>
+                            <li><i class="fas fa-check"></i> 2-year protection guarantee</li>
+                            <li><i class="fas fa-check"></i> Enhanced paint shine</li>
+                            <li><i class="fas fa-check"></i> Hydrophobic water beading</li>
+                            <li><i class="fas fa-check"></i> Maintenance kit included</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="service-book-btn" onclick="openBookingModal(event)">Book This Service</a>
+                </div>
+
+                <!-- Mobile Service -->
+                <div class="service-detail-card">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Mobile Service</h3>
+                    <div class="service-description">
+                        <p>We come to you! All our services are available as mobile detailing. Your car is detailed at your home, office, or preferred location throughout Louisville and surrounding areas.</p>
+                        <h4>Mobile Service Benefits:</h4>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Schedule at your convenience</li>
+                            <li><i class="fas fa-check"></i> No need to travel</li>
+                            <li><i class="fas fa-check"></i> Same quality as shop service</li>
+                            <li><i class="fas fa-check"></i> Professional equipment on-site</li>
+                            <li><i class="fas fa-check"></i> Eco-friendly water systems</li>
+                            <li><i class="fas fa-check"></i> Serving Louisville metro area</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="service-book-btn" onclick="openBookingModal(event)">Book This Service</a>
+                </div>
+
+                <!-- Add-on Services -->
+                <div class="service-detail-card">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <h3>Add-On Services</h3>
+                    <div class="service-description">
+                        <p>Enhance any service with our premium add-ons. Perfect for customizing your detailing package to meet your specific vehicle needs.</p>
+                        <h4>Available Add-ons:</h4>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Engine bay detailing</li>
+                            <li><i class="fas fa-check"></i> Headlight restoration</li>
+                            <li><i class="fas fa-check"></i> Leather conditioning</li>
+                            <li><i class="fas fa-check"></i> Clay bar treatment</li>
+                            <li><i class="fas fa-check"></i> Wheel restoration</li>
+                            <li><i class="fas fa-check"></i> Paint correction</li>
+                            <li><i class="fas fa-check"></i> Custom packages available</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="service-book-btn" onclick="openBookingModal(event)">Custom Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Our Services -->
+    <section class="service-benefits">
+        <div class="container">
+            <h2>Why Choose A&M Detailing?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Professional Team</h3>
+                    <p>Experienced detailers with years of expertise in automotive care</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Eco-Friendly</h3>
+                    <p>We use premium eco-friendly products that are safe for your vehicle and the environment</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-star"></i>
+                    <h3>Attention to Detail</h3>
+                    <p>Every service is completed with meticulous attention to ensure perfection</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Service</h3>
+                    <p>Convenient service comes directly to your home or office</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-handshake"></i>
+                    <h3>100% Satisfaction</h3>
+                    <p>We guarantee your complete satisfaction with every service</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Quick Turnaround</h3>
+                    <p>Fast, efficient service without compromising on quality</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Gallery Section -->
+    <section class="work-gallery">
+        <div class="container">
+            <h2>See Our Work</h2>
+            <p class="gallery-intro">Before & After transformations</p>
+            <div class="gallery-grid">
+                <!-- Before/After Card 1 -->
+                <div class="gallery-item">
+                    <div class="before-after-container">
+                        <div class="before-after-images">
+                            <img src="assets/images/gallery/pic1before exterior.png" alt="Before - Exterior Wash" class="before-img">
+                            <img src="assets/images/gallery/pic1after exterior.png" alt="After - Exterior Wash" class="after-img">
+                            <button class="toggle-before-after" aria-label="Toggle before/after">
+                                <span class="toggle-label">Show After</span>
+                            </button>
+                        </div>
+                        <div class="gallery-info">
+                            <h3>Exterior Wash</h3>
+                            <p>Complete exterior restoration and shine</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Before/After Card 2 -->
+                <div class="gallery-item">
+                    <div class="before-after-container">
+                        <div class="before-after-images">
+                            <img src="assets/images/gallery/pic1before inter.png" alt="Before - Interior Detail" class="before-img">
+                            <img src="assets/images/gallery/pic1after inter.png" alt="After - Interior Detail" class="after-img">
+                            <button class="toggle-before-after" aria-label="Toggle before/after">
+                                <span class="toggle-label">Show After</span>
+                            </button>
+                        </div>
+                        <div class="gallery-info">
+                            <h3>Interior Detailing</h3>
+                            <p>Deep clean and conditioning</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Before/After Card 3 -->
+                <div class="gallery-item">
+                    <div class="before-after-container">
+                        <div class="before-after-images">
+                            <img src="assets/images/gallery/pic1before fulldetail.png" alt="Before - Full Detail" class="before-img">
+                            <img src="assets/images/gallery/pic1after fulldetail.png" alt="After - Full Detail" class="after-img">
+                            <button class="toggle-before-after" aria-label="Toggle before/after">
+                                <span class="toggle-label">Show After</span>
+                            </button>
+                        </div>
+                        <div class="gallery-info">
+                            <h3>Full Detailing</h3>
+                            <p>Premium complete transformation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Before/After Card 4 -->
+                <div class="gallery-item">
+                    <div class="before-after-container">
+                        <div class="before-after-images">
+                            <img src="assets/images/gallery/pic1 paint per .png" alt="Before - Paint Protection" class="before-img">
+                            <img src="assets/images/gallery/pic1 paint per.png" alt="After - Paint Protection" class="after-img">
+                            <button class="toggle-before-after" aria-label="Toggle before/after">
+                                <span class="toggle-label">Show After</span>
+                            </button>
+                        </div>
+                        <div class="gallery-info">
+                            <h3>Paint Protection</h3>
+                            <p>Ceramic coating applied</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Before/After Card 5 -->
+                <div class="gallery-item">
+                    <div class="before-after-container">
+                        <div class="before-after-images">
+                            <img src="assets/images/gallery/pic1before wheel.png" alt="Before - Wheel Detail" class="before-img">
+                            <img src="assets/images/gallery/pic1after wheel.png" alt="After - Wheel Detail" class="after-img">
+                            <button class="toggle-before-after" aria-label="Toggle before/after">
+                                <span class="toggle-label">Show After</span>
+                            </button>
+                        </div>
+                        <div class="gallery-info">
+                            <h3>Wheel Detailing</h3>
+                            <p>Professional shine and protection</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-footer-cta">
+                <p>Want to see more transformations?</p>
+                <a href="https://www.instagram.com/aandmdetails/" target="_blank" class="cta-link">
+                    View More on Instagram <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="service-cta">
+        <div class="container">
+            <h2>Ready to Transform Your Vehicle?</h2>
+            <p>Book your service today and experience the A&M Detailing difference</p>
+            <a href="#" id="ctaBookBtn" class="cta-button">Book Now</a>
+        </div>
+    </section>
+
+    <!-- Booking Modal Popup -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content modal-content--book">
+            <span class="close" id="closeBookingModal">&times;</span>
+            <div class="modal-header">
+                <i class="fas fa-calendar-check"></i>
+                <h2>Book Your Service</h2>
+                <p class="modal-subhead">Schedule your appointment below</p>
+            </div>
+            <div class="modal-body">
+                <!-- Google Calendar Appointment Scheduling Widget -->
+                <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3ikXtil5ItFjxvZd4jUW-LncYoT1erRNSEsFb9gLYbiN1sk6oQsuHjAgc2OGX4Z25xc1csHVbh" style="border: 0; width: 100%; height: 600px;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">
+                <img src="A&M.jpg" alt="A&M Detailing Logo" class="footer-logo">
+                <span class="footer-brand-name">A&M Detailing</span>
+            </div>
+            <p class="footer-tagline">"It's not just clean, it's A&amp;M clean." · Louisville, KY</p>
+
+            <div class="footer-social">
+                <a href="https://www.facebook.com/profile.php?id=61578816005109" target="_blank" class="footer-social-btn facebook" title="Facebook">
+                    <i class="fab fa-facebook-f"></i><span>Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/aandmdetails/" target="_blank" class="footer-social-btn instagram" title="Instagram">
+                    <i class="fab fa-instagram"></i><span>Instagram</span>
+                </a>
+                <a href="https://www.tiktok.com/@aandmdetails" target="_blank" class="footer-social-btn tiktok" title="TikTok">
+                    <i class="fab fa-tiktok"></i><span>TikTok</span>
+                </a>
+                <a href="https://www.google.com/maps/search/A%26M+Detailing+Louisville+KY" target="_blank" class="footer-social-btn google" title="Google">
+                    <i class="fab fa-google"></i><span>Google</span>
+                </a>
+                <a href="mailto:aandmdetailingservice@gmail.com" class="footer-social-btn email" title="Email">
+                    <i class="fas fa-envelope"></i><span>Email</span>
+                </a>
+                <a href="tel:+15026505425" class="footer-social-btn phone" title="Call Us">
+                    <i class="fas fa-phone"></i><span>(502) 650-5425</span>
+                </a>
+            </div>
+
+            <div class="footer-cta">
+                <a href="#" id="footerBookBtn" class="footer-book-btn">
+                    <i class="fas fa-calendar-check"></i> Book Now
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 A&M Detailing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Services page booking modal function
+        function openBookingModal(e) {
+            if (e) {
+                e.preventDefault();
+            }
+            const bookingModal = document.getElementById('bookingModal');
+            if (bookingModal) {
+                bookingModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+    </script>
+</body>
+</html>
