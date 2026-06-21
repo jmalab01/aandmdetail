@@ -1,0 +1,7 @@
+title: A&M Detailing
+description: Premium Auto Detailing Services
+markdown: kramdown
+exclude:
+  - node_modules
+  - "*.log"
+  - README.md
