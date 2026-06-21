@@ -11,6 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
+      - name: Configure Git
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+      
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
