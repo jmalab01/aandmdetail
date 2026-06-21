@@ -1487,6 +1487,18 @@ h2::after {
 
 /* Services Page Responsive */
 @media (max-width: 1024px) {
+  /* Navbar - Ensure consistent styling */
+  .navbar {
+    padding: 0.75rem 0;
+  }
+  .logo {
+    width: 52px;
+    height: 52px;
+  }
+  .brand-name {
+    font-size: 1.15rem;
+  }
+  
   .services-detail-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -1503,6 +1515,70 @@ h2::after {
 
 @media (max-width: 768px) {
   html { font-size: 14px; }
+
+  /* Navbar - Mobile optimized for services */
+  .navbar {
+    padding: 0.75rem 0;
+  }
+  .logo {
+    width: 52px;
+    height: 52px;
+    border: 2px solid var(--gold);
+  }
+  .brand-name {
+    font-size: 1.15rem;
+    letter-spacing: 1px;
+  }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.99);
+    flex-direction: column;
+    padding: 1.25rem 1.5rem;
+    gap: 1rem;
+    border-bottom: 2px solid var(--gold);
+    z-index: 998;
+    backdrop-filter: blur(8px);
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .nav-links a {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
+  }
+  .nav-links a::after {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .hamburger span {
+    width: 24px;
+    height: 2px;
+    background: var(--gold);
+  }
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+  }
+  .nav-book-btn {
+    background: var(--gold) !important;
+    color: #000 !important;
+    padding: 0.6rem 1.5rem !important;
+  }
 
   .services-hero {
     padding: 2.5rem 1rem;
