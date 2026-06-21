@@ -221,7 +221,7 @@ h2::after {
   background: var(--dark-bg);
   display: flex; align-items: center; justify-content: center;
   text-align: center; position: relative; overflow: hidden;
-  padding: 7rem 1.5rem 5rem;
+  padding: 5rem 1.5rem 5rem;
 }
 .hero::before {
   content: ''; position: absolute; inset: 0;
@@ -333,7 +333,7 @@ h2::after {
 }
 
 /* ===== SERVICES ===== */
-.services { background: var(--dark-secondary); }
+.services { background: var(--dark-secondary); padding: 3.5rem 0; }
 /* 5-card grid: 3 on top row, 2 centered on bottom */
 .services-grid {
   display: grid;
