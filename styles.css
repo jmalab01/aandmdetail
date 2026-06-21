@@ -1166,7 +1166,7 @@ h2::after {
 
   /* Services hero */
   .services-hero {
-    padding: 4.5rem 1rem 3rem;
+    padding: 6rem 1rem 3rem;
   }
   .services-hero h1 {
     font-size: 1.9rem;
@@ -3146,7 +3146,7 @@ h2::after {
 
 @media (max-width: 480px) {
   .social-hero {
-    padding: 4.5rem 1rem 3rem;
+    padding: 6rem 1rem 3rem;
     margin-top: 55px;
   }
 
