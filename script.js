@@ -40,6 +40,49 @@ function trackEvent(eventName, eventData = {}) {
 }
 
 // ============================================
+// LAZY LOADING OPTIMIZATION
+// ============================================
+// Lazy load images for better performance
+if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                }
+                observer.unobserve(img);
+            }
+        });
+    }, { rootMargin: '50px' });
+
+    document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+    });
+}
+
+// Lazy load iframes (Google Calendar, Google Reviews, etc)
+if ('IntersectionObserver' in window) {
+    const iframeObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const iframe = entry.target;
+                if (iframe.dataset.src) {
+                    iframe.src = iframe.dataset.src;
+                    iframe.removeAttribute('data-src');
+                }
+                observer.unobserve(iframe);
+            }
+        });
+    }, { rootMargin: '100px' });
+
+    document.querySelectorAll('iframe[data-src]').forEach(iframe => {
+        iframeObserver.observe(iframe);
+    });
+}
+
+// ============================================
 // BOOKING MODAL FUNCTIONS
 // ============================================
 function openBookingModal(e) {

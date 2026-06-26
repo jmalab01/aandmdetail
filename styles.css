@@ -1,3 +1,9 @@
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+img { max-width: 100%; height: auto; display: block; }
+iframe { display: block; }
+
 /* ===== VARIABLES ===== */
 :root {
   --dark-bg:        #0a0a0a;
