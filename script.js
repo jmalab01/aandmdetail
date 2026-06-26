@@ -27,6 +27,8 @@ const navLinks            = document.querySelector('.nav-links');
 const navbar              = document.querySelector('.navbar');
 const navBookBtn          = document.getElementById('navBookBtn');
 const footerBookBtn       = document.getElementById('footerBookBtn');
+const ctaBookBtn          = document.getElementById('ctaBookBtn');
+const ctaSocialBookBtn    = document.getElementById('ctaSocialBookBtn');
 const bookingModal        = document.getElementById('bookingModal');
 const closeBookingModal   = document.getElementById('closeBookingModal');
 
@@ -77,6 +79,19 @@ if (navBookBtn) {
 if (footerBookBtn) {
     footerBookBtn.addEventListener('click', openBookingModal);
 }
+
+if (ctaBookBtn) {
+    ctaBookBtn.addEventListener('click', openBookingModal);
+}
+
+if (ctaSocialBookBtn) {
+    ctaSocialBookBtn.addEventListener('click', openBookingModal);
+}
+
+// Also handle all buttons with class "footer-book-btn"
+document.querySelectorAll('.footer-book-btn').forEach(button => {
+    button.addEventListener('click', openBookingModal);
+});
 
 // ============================================
 // HAMBURGER MENU & NAVIGATION
