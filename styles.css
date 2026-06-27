@@ -3651,3 +3651,103 @@ img {
   object-fit: cover !important;
   object-position: center !important;
 }
+
+/* ============================================
+   GLOBAL PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
+/* Prevent layout shifts */
+* {
+  box-sizing: border-box;
+}
+
+/* Optimize critical rendering path */
+body {
+  font-display: swap;
+}
+
+/* Image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* iFrame performance */
+iframe {
+  display: block;
+  width: 100%;
+  border: none;
+}
+
+/* Reduce repaints and reflows */
+.gallery-item,
+.before-after-container,
+.toggle-before-after,
+.before-img,
+.after-img {
+  contain: layout style paint;
+}
+
+/* Smooth scrolling for performance */
+html {
+  scroll-behavior: auto;
+}
+
+/* GPU acceleration for animations */
+.toggle-before-after,
+.before-img,
+.after-img {
+  transform: translateZ(0);
+  will-change: auto;
+}
+
+/* Fast image loading with proper sizing */
+.before-img,
+.after-img {
+  aspect-ratio: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Prevent image distortion */
+.before-after-images {
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+/* Optimize video loading */
+video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Calendar frame optimization */
+iframe[src*="calendar.google.com"],
+iframe[src*="instagram.com"],
+iframe[src*="facebook.com"] {
+  min-height: 400px;
+}
+
+/* Lazy load placeholders */
+img[loading="lazy"] {
+  background: linear-gradient(90deg, rgba(201,162,39,0.1) 25%, rgba(201,162,39,0.2) 50%, rgba(201,162,39,0.1) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
