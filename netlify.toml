@@ -1,6 +1,6 @@
 [build]
-  publish = "."
-  command = "echo 'Building...'"
+  command = "bundle exec jekyll build"
+  publish = "_site"
 
 [[redirects]]
   from = "/*"
