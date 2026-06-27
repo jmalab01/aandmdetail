@@ -2746,20 +2746,21 @@ h2::after {
   font-size: 0.9rem;
   cursor: pointer;
   z-index: 10;
-  transition: all 0.3s ease;
+  transition: box-shadow 0.3s ease, background 0.3s ease;
   box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3);
 }
 
 .toggle-before-after:hover {
-  transform: translateX(-50%) translateY(-2px);
+  transform: translateX(-50%);
   box-shadow: 0 6px 20px rgba(201, 162, 39, 0.5);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
 }
 
 .toggle-before-after:active {
-  transform: translateX(-50%) translateY(0);
+  transform: translateX(-50%);
+  box-shadow: 0 4px 12px rgba(201, 162, 39, 0.4);
 }
 
-.toggle-label {
   display: inline-block;
 }
 
