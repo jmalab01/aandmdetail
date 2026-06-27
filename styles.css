@@ -2733,7 +2733,7 @@ h2::after {
 
 /* Toggle Button for Before/After */
 .toggle-before-after {
-  position: fixed;
+  position: absolute;
   bottom: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
@@ -2745,7 +2745,7 @@ h2::after {
   font-weight: 600;
   font-size: 0.9rem;
   cursor: pointer;
-  z-index: 10;
+  z-index: 20;
   box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3);
 }
 
