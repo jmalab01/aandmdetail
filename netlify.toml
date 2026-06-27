@@ -1,12 +1,22 @@
 [build]
   publish = "."
-  command = "echo 'Static site - no build needed'"
+  command = "echo 'Deploying static site'"
+  
+[build.environment]
+  JEKYLL_ENV = "production"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-# Disable Jekyll
-[build.environment]
-  JEKYLL_ENV = "production"
+# Cache headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
