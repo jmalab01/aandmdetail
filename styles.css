@@ -3611,12 +3611,6 @@ h2::after {
   .stat-card p { font-size: 0.7rem; }
 }
 /* Wheel Image Optimization - Full wheel display without excessive zoom */
-.wheel-img {
-  object-fit: contain !important;
-  background-color: var(--dark-bg);
-  padding: 1rem;
-  box-sizing: border-box;
-}
 
 @media (max-width: 768px) {
   .wheel-img {
@@ -3624,21 +3618,6 @@ h2::after {
   }
 }
 
-/* Override wheel image to match gallery layout */
-.wheel-img {
-  object-fit: cover !important;
-  object-position: center !important;
-  padding: 0 !important;
-  background-color: transparent !important;
-}
-
-/* Image Rendering Optimization */
-.before-img,
-.after-img {
-  will-change: opacity;
-  backface-visibility: hidden;
-  -webkit-font-smoothing: antialiased;
-}
 
 /* Optimize image loading */
 img {
@@ -3647,10 +3626,6 @@ img {
 }
 
 /* Improve wheel image zoom and fit */
-.wheel-img {
-  object-fit: cover !important;
-  object-position: center !important;
-}
 
 /* ============================================
    GLOBAL PERFORMANCE OPTIMIZATIONS
@@ -3749,5 +3724,34 @@ img[loading="lazy"] {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   WHEEL IMAGE OPTIMIZATION
+   ============================================ */
+/* Show full wheel - fit inside box without excessive zoom */
+.wheel-img {
+  object-fit: contain !important;
+  object-position: center !important;
+  padding: 0.5rem !important;
+  background-color: var(--dark-bg) !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Tablet optimization */
+@media (max-width: 768px) {
+  .wheel-img {
+    padding: 0.25rem !important;
+    object-fit: contain !important;
+  }
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+  .wheel-img {
+    padding: 0.1rem !important;
   }
 }
