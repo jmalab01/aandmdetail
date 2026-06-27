@@ -11,10 +11,9 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v2.1.1
+        uses: jsmrcaga/action-netlify-deploy@v2.1.0
         with:
-          publish-dir: '.'
-          production-deploy: true
-        env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_DEPLOY_TO_PROD: true
+          build_directory: '.'
