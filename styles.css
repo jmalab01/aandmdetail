@@ -2720,9 +2720,9 @@ h2::after {
 /* Toggle Button for Before/After */
 .toggle-before-after {
   position: absolute;
-  top: 50%;
+  bottom: 1rem;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   background: linear-gradient(135deg, var(--gold), var(--gold-light));
   color: #000;
   border: none;
