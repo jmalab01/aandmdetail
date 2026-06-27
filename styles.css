@@ -2733,7 +2733,7 @@ h2::after {
 
 /* Toggle Button for Before/After */
 .toggle-before-after {
-  position: absolute;
+  position: fixed;
   bottom: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
@@ -2746,24 +2746,17 @@ h2::after {
   font-size: 0.9rem;
   cursor: pointer;
   z-index: 10;
-  transition: box-shadow 0.3s ease, background 0.3s ease;
   box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3);
 }
 
 .toggle-before-after:hover {
-  transform: translateX(-50%);
   box-shadow: 0 6px 20px rgba(201, 162, 39, 0.5);
   background: linear-gradient(135deg, var(--gold-light), var(--gold));
 }
 
 .toggle-before-after:active {
-  transform: translateX(-50%);
   box-shadow: 0 4px 12px rgba(201, 162, 39, 0.4);
 }
-
-  display: inline-block;
-}
-
 
 
 
@@ -3611,14 +3604,7 @@ h2::after {
   .stat-card h3 { font-size: 0.8rem; }
   .stat-card p { font-size: 0.7rem; }
 }
-/* Wheel Image Optimization - Full wheel display without excessive zoom */
-
-@media (max-width: 768px) {
-  .wheel-img {
-    padding: 0.75rem;
-  }
-}
-
+/* Wheel Image Optimization - Uses standard before/after cover fit */
 
 /* Optimize image loading */
 img {
@@ -3633,8 +3619,6 @@ img[loading="lazy"] {
   background-color: var(--dark-bg);
   aspect-ratio: 1 / 1;
 }
-
-/* Improve wheel image zoom and fit */
 
 /* ============================================
    GLOBAL PERFORMANCE OPTIMIZATIONS
