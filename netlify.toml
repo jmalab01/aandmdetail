@@ -1,0 +1,12 @@
+[build]
+  command = "echo 'Skipping build'"
+  publish = "."
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[context.production]
+  command = "echo 'Production build - static files only'"
+
