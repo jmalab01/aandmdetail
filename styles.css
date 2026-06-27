@@ -2798,6 +2798,29 @@ h2::after {
   box-shadow: 0 4px 12px rgba(201, 162, 39, 0.4);
 }
 
+/* Mobile: Prevent button movement on touch devices */
+@media (max-width: 768px) {
+  .toggle-before-after {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.65rem 1.25rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .toggle-before-after {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
 
 
 
