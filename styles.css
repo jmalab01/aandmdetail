@@ -3624,6 +3624,14 @@ h2::after {
 img {
   max-width: 100%;
   height: auto;
+  will-change: contents;
+  backface-visibility: hidden;
+}
+
+/* Lazy loading images */
+img[loading="lazy"] {
+  background-color: var(--dark-bg);
+  aspect-ratio: 1 / 1;
 }
 
 /* Improve wheel image zoom and fit */
@@ -3740,6 +3748,8 @@ img[loading="lazy"] {
   box-sizing: border-box !important;
   width: 100% !important;
   height: 100% !important;
+  max-width: 300px !important;
+  max-height: 300px !important;
 }
 
 /* Tablet optimization */
@@ -3747,6 +3757,8 @@ img[loading="lazy"] {
   .wheel-img {
     padding: 0.25rem !important;
     object-fit: contain !important;
+    max-width: 250px !important;
+    max-height: 250px !important;
   }
 }
 
@@ -3754,5 +3766,7 @@ img[loading="lazy"] {
 @media (max-width: 480px) {
   .wheel-img {
     padding: 0.1rem !important;
+    max-width: 150px !important;
+    max-height: 150px !important;
   }
 }
