@@ -1,8 +1,47 @@
 /* ===== PERFORMANCE OPTIMIZATIONS ===== */
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-img { max-width: 100%; height: auto; display: block; }
-iframe { display: block; }
+html { 
+  scroll-behavior: smooth; 
+  font-display: swap;
+}
+
+/* Critical rendering path optimization */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--dark-bg);
+  color: var(--text-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  contain: layout style paint;
+}
+
+/* Image optimization */
+img { 
+  max-width: 100%; 
+  height: auto; 
+  display: block;
+  will-change: contents;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Lazy loaded images */
+img[loading="lazy"] {
+  background-color: var(--dark-bg);
+}
+
+/* iFrame optimization */
+iframe { 
+  display: block;
+  width: 100%;
+  border: none;
+}
+
+/* Reduce layout shift */
+video {
+  max-width: 100%;
+  height: auto;
+}
 
 /* ===== VARIABLES ===== */
 :root {
@@ -3608,6 +3647,40 @@ img[loading="lazy"] {
 /* Optimize critical rendering path */
 body {
   font-display: swap;
+}
+
+/* Reduce paint and layout thrashing */
+.gallery-item,
+.before-after-container,
+.toggle-before-after,
+.service-detail-card,
+.pricing-card {
+  contain: layout style paint;
+  will-change: auto;
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Optimize images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  will-change: contents;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* iFrame performance */
+iframe {
+  display: block;
+  width: 100%;
+  border: none;
 }
 
 /* Image optimization */
