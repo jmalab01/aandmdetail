@@ -3623,3 +3623,31 @@ h2::after {
     padding: 0.75rem;
   }
 }
+
+/* Override wheel image to match gallery layout */
+.wheel-img {
+  object-fit: cover !important;
+  object-position: center !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+}
+
+/* Image Rendering Optimization */
+.before-img,
+.after-img {
+  will-change: opacity;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Optimize image loading */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Improve wheel image zoom and fit */
+.wheel-img {
+  object-fit: cover !important;
+  object-position: center !important;
+}
