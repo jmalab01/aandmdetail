@@ -1,20 +1,15 @@
 // ============================================
-// SPLASH SCREEN ANIMATION
+// SPLASH SCREEN
 // ============================================
-// Only show splash screen on first page load, never again
 const splashScreen = document.getElementById('splashScreen');
 if (splashScreen) {
-    // Check if this is the first visit ever
     const splashShownEver = localStorage.getItem('splashShownEver');
-    
     if (!splashShownEver) {
-        // First time ever - show splash screen
         localStorage.setItem('splashShownEver', 'true');
         setTimeout(() => {
             splashScreen.style.display = 'none';
         }, 4000);
     } else {
-        // Already shown before - hide it immediately
         splashScreen.style.display = 'none';
     }
 }
@@ -77,109 +72,9 @@ if ('IntersectionObserver' in window) {
 }
 
 // ============================================
-// BOOKING MODAL FUNCTIONS - COMPREHENSIVE
+// NAVIGATION
 // ============================================
-function openBookingModal(e) {
-    if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-    
-    const modal = document.getElementById('bookingModal');
-    
-    if (!modal) {
-        console.error('❌ Modal element with ID "bookingModal" not found!');
-        return;
-    }
-    
-    // Show the modal
-    modal.classList.add('show');
-    document.body.style.overflow = 'hidden';
-    
-    console.log('✅ Modal opened successfully');
-}
 
-function closeBookingModalFn() {
-    const modal = document.getElementById('bookingModal');
-    
-    if (modal) {
-        modal.classList.remove('show');
-        document.body.style.overflow = '';
-        console.log('✅ Modal closed successfully');
-    }
-}
-
-// Setup modal event listeners after DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('🔧 Setting up modal listeners...');
-    
-    // Close button handler
-    const closeBtn = document.getElementById('closeBookingModal');
-    if (closeBtn) {
-        closeBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            closeBookingModalFn();
-        });
-        console.log('✅ Close button listener added');
-    }
-    
-    // Close when clicking outside modal content
-    const modal = document.getElementById('bookingModal');
-    if (modal) {
-        modal.addEventListener('click', function(e) {
-            // Only close if clicking directly on the modal background, not the content
-            if (e.target === modal) {
-                closeBookingModalFn();
-            }
-        });
-        console.log('✅ Modal background click listener added');
-    } else {
-        console.error('❌ Modal element not found!');
-    }
-    
-    // All booking buttons - by ID
-    const bookingButtonIds = ['navBookBtn', 'footerBookBtn', 'ctaBookBtn', 'ctaSocialBookBtn'];
-    bookingButtonIds.forEach(id => {
-        const btn = document.getElementById(id);
-        if (btn) {
-            btn.addEventListener('click', openBookingModal);
-            console.log(`✅ Added listener to #${id}`);
-        }
-    });
-    
-    // All booking buttons - by class (CTA buttons, footer, service cards)
-    const ctaButtons = document.querySelectorAll('.cta-button');
-    const footerButtons = document.querySelectorAll('.footer-book-btn');
-    const serviceButtons = document.querySelectorAll('.service-book-btn');
-    
-    // Hero CTA button
-    ctaButtons.forEach(button => {
-        // Only attach to buttons that say "Book"
-        if (button.textContent.includes('Book')) {
-            button.addEventListener('click', openBookingModal);
-        }
-    });
-    console.log(`✅ Added listeners to ${ctaButtons.length} CTA buttons`);
-    
-    // Footer book button
-    footerButtons.forEach(button => {
-        button.addEventListener('click', openBookingModal);
-    });
-    console.log(`✅ Added listeners to ${footerButtons.length} footer book buttons`);
-    
-    // Service card book buttons
-    serviceButtons.forEach(button => {
-        button.addEventListener('click', openBookingModal);
-    });
-    console.log(`✅ Added listeners to ${serviceButtons.length} service book buttons`);
-    
-    console.log('🎉 Modal setup complete!');
-});
-
-// ============================================
-// HAMBURGER MENU & NAVIGATION
-// ============================================
 if (hamburger) {
     hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
