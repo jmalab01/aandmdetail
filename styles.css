@@ -727,7 +727,6 @@ h2::after {
 
 /* ===== MODAL ===== */
 .modal {
-  display: none !important;
   position: fixed;
   top: 0;
   left: 0;
@@ -737,19 +736,14 @@ h2::after {
   height: 100%;
   background: rgba(0, 0, 0, 0.9);
   z-index: 10000;
+  display: none;
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  overflow-y: auto;
 }
 
 .modal.show {
   display: flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
 }
 
 .modal-content {
@@ -759,6 +753,9 @@ h2::after {
   padding: 2.5rem;
   max-width: 700px;
   width: 100%;
+  height: auto;
+  max-height: 85vh;
+  overflow-y: auto;
   position: relative;
   animation: slideUp 0.3s ease;
   margin: auto;
@@ -786,6 +783,12 @@ h2::after {
   background: none;
   border: none;
   z-index: 10001;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .close:hover {
@@ -807,10 +810,18 @@ h2::after {
 .modal-header h2 {
   font-size: 1.5rem;
   color: #333;
+  margin: 0;
 }
 
 .modal-header h2::after {
   display: none;
+}
+
+.modal-subhead {
+  color: #666 !important;
+  font-size: 0.9rem !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0 !important;
 }
 
 .modal-body p {
@@ -823,6 +834,8 @@ h2::after {
 .modal-body iframe {
   border-radius: 6px;
   border: 1px solid #ddd;
+  width: 100%;
+  height: 600px;
 }
 
 .modal-body .highlight {
@@ -910,6 +923,12 @@ h2::after {
   margin: -2.5rem -2.5rem 1.5rem -2.5rem;
   padding: 1.5rem 2.5rem;
   border-bottom: 1px solid #ddd;
+}
+
+.modal-content--book .close {
+  color: #333;
+  top: 1rem;
+  right: 1rem;
 }
 
 .modal-content--book .close {

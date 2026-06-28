@@ -92,15 +92,9 @@ function openBookingModal(e) {
         return;
     }
     
-    // Force modal to be visible
-    modal.style.display = 'flex !important';
+    // Show the modal
     modal.classList.add('show');
     document.body.style.overflow = 'hidden';
-    
-    // Scroll to top of modal
-    setTimeout(() => {
-        modal.scrollTop = 0;
-    }, 50);
     
     console.log('✅ Modal opened successfully');
 }
@@ -109,7 +103,6 @@ function closeBookingModalFn() {
     const modal = document.getElementById('bookingModal');
     
     if (modal) {
-        modal.style.display = 'none';
         modal.classList.remove('show');
         document.body.style.overflow = '';
         console.log('✅ Modal closed successfully');
@@ -118,10 +111,13 @@ function closeBookingModalFn() {
 
 // Setup modal event listeners after DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('🔧 Setting up modal listeners...');
+    
     // Close button handler
     const closeBtn = document.getElementById('closeBookingModal');
     if (closeBtn) {
         closeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
             e.stopPropagation();
             closeBookingModalFn();
         });
@@ -144,18 +140,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const btn = document.getElementById(id);
         if (btn) {
             btn.addEventListener('click', openBookingModal);
+            console.log(`✅ Added listener to #${id}`);
         }
     });
     
-    // All booking buttons - by class
-    document.querySelectorAll('.footer-book-btn, .service-book-btn, .cta-button').forEach(button => {
+    // All booking buttons - by class (main CTA button)
+    const classButtons = document.querySelectorAll('.cta-button, .footer-book-btn, .service-book-btn');
+    classButtons.forEach(button => {
         button.addEventListener('click', function(e) {
-            // Check if it's actually a booking button
-            if (this.textContent.toLowerCase().includes('book')) {
-                openBookingModal(e);
-            }
+            // Open modal for any button with these classes
+            openBookingModal(e);
         });
     });
+    
+    console.log(`✅ Modal setup complete - Found ${classButtons.length} class-based booking buttons`);
 });
 
 // ============================================
