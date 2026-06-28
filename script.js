@@ -89,10 +89,16 @@ function openBookingModal(e) {
     if (e) {
         e.preventDefault();
     }
+    console.log('openBookingModal called', bookingModal);
     if (bookingModal) {
         bookingModal.classList.add('show');
         bookingModal.style.display = 'flex';
+        bookingModal.style.visibility = 'visible';
+        bookingModal.style.opacity = '1';
         document.body.style.overflow = 'hidden';
+        console.log('Modal opened');
+    } else {
+        console.error('bookingModal element not found');
     }
 }
 
@@ -100,7 +106,10 @@ function closeBookingModalFn() {
     if (bookingModal) {
         bookingModal.classList.remove('show');
         bookingModal.style.display = 'none';
+        bookingModal.style.visibility = 'hidden';
+        bookingModal.style.opacity = '0';
         document.body.style.overflow = '';
+        console.log('Modal closed');
     }
 }
 
