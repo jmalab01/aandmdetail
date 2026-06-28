@@ -89,27 +89,25 @@ function openBookingModal(e) {
     if (e) {
         e.preventDefault();
     }
-    console.log('openBookingModal called', bookingModal);
-    if (bookingModal) {
-        bookingModal.classList.add('show');
-        bookingModal.style.display = 'flex';
-        bookingModal.style.visibility = 'visible';
-        bookingModal.style.opacity = '1';
+    const modal = document.getElementById('bookingModal');
+    console.log('openBookingModal called', modal);
+    if (modal) {
+        modal.style.display = 'flex';
+        modal.classList.add('show');
         document.body.style.overflow = 'hidden';
-        console.log('Modal opened');
+        console.log('✅ Modal opened successfully');
     } else {
-        console.error('bookingModal element not found');
+        console.error('❌ Modal element not found!');
     }
 }
 
 function closeBookingModalFn() {
-    if (bookingModal) {
-        bookingModal.classList.remove('show');
-        bookingModal.style.display = 'none';
-        bookingModal.style.visibility = 'hidden';
-        bookingModal.style.opacity = '0';
+    const modal = document.getElementById('bookingModal');
+    if (modal) {
+        modal.style.display = 'none';
+        modal.classList.remove('show');
         document.body.style.overflow = '';
-        console.log('Modal closed');
+        console.log('✅ Modal closed successfully');
     }
 }
 
