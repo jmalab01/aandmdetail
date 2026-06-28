@@ -81,7 +81,7 @@ img { max-width: 100%; }
   height: 100%;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   z-index: 10000;
   animation: fadeOutSplash 0.5s ease 3.5s forwards;
@@ -4124,14 +4124,16 @@ img[loading="lazy"] {
 /* ===== BOOKING POPUP VIEWPORT FIT ===== */
 .modal.show {
   display: flex !important;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  overflow: hidden !important;
 }
 
 .modal-content--book {
   width: min(94vw, 980px) !important;
   max-width: 980px !important;
-  max-height: calc(100dvh - 2rem) !important;
+  max-height: calc(100dvh - 1rem) !important;
+  margin-top: max(0.5rem, env(safe-area-inset-top)) !important;
   overflow: hidden !important;
   padding: 0 !important;
   display: flex !important;
@@ -4166,7 +4168,7 @@ img[loading="lazy"] {
 }
 
 .modal-content--book .calendar-frame-shell {
-  height: clamp(320px, calc(100dvh - 170px), 620px) !important;
+  height: clamp(300px, calc(100dvh - 155px), 620px) !important;
   min-height: 0 !important;
 }
 
@@ -4189,6 +4191,7 @@ img[loading="lazy"] {
   .modal-content--book {
     width: calc(100vw - 0.7rem) !important;
     max-height: calc(100dvh - 0.7rem) !important;
+    margin-top: max(0.35rem, env(safe-area-inset-top)) !important;
   }
 
   .modal-content--book .modal-header {
@@ -4212,7 +4215,7 @@ img[loading="lazy"] {
   }
 
   .modal-content--book .calendar-frame-shell {
-    height: clamp(300px, calc(100dvh - 140px), 520px) !important;
+    height: clamp(280px, calc(100dvh - 125px), 520px) !important;
   }
 
   .modal-content--book .calendar-fallback-link {

@@ -257,6 +257,12 @@ function showModal() {
         if (bookingCalendarFrame && !bookingCalendarFrame.getAttribute('src')) {
             bookingCalendarFrame.setAttribute('src', bookingCalendarFrame.dataset.src);
         }
+        modal.style.position = 'fixed';
+        modal.style.inset = '0';
+        modal.style.display = 'flex';
+        modal.style.alignItems = 'flex-start';
+        modal.style.justifyContent = 'center';
+        modal.scrollTop = 0;
         console.log('Before adding class - display:', window.getComputedStyle(modal).display);
         modal.classList.add('show');
         console.log('After adding class - display:', window.getComputedStyle(modal).display);
@@ -271,6 +277,7 @@ function hideModal() {
     console.log('hideModal() called');
     if (modal) {
         modal.classList.remove('show');
+        modal.style.display = '';
         console.log('✅ Modal show class removed');
     }
 }
@@ -303,7 +310,7 @@ document.addEventListener('keydown', function(e) {
 
 // Get all booking buttons.
 const bookingButtons = document.querySelectorAll(
-    '#navBookBtn, #footerBookBtn, #ctaBookBtn, #ctaSocialBookBtn, .service-book-btn, .booking-trigger, .cta-button[href="#booking"]'
+    '#navBookBtn, #footerBookBtn, #ctaBookBtn, #ctaSocialBookBtn, .service-book-btn, .booking-trigger'
 );
 
 console.log('Booking buttons:', bookingButtons.length);
