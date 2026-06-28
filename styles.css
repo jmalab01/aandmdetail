@@ -770,6 +770,12 @@ body > .modal.show {
   z-index: 999999 !important;
 }
 
+html.booking-modal-open,
+body.booking-modal-open {
+  overflow: hidden !important;
+  overscroll-behavior: none;
+}
+
 .modal-content {
   background: #ffffff;
   width: min(94vw, 980px);
@@ -4141,8 +4147,9 @@ img[loading="lazy"] {
 }
 
 .modal-content--book {
-  width: min(94vw, 980px) !important;
-  max-width: 980px !important;
+  width: min(94vw, 860px) !important;
+  max-width: 860px !important;
+  height: min(88dvh, 720px) !important;
   max-height: calc(100dvh - 1rem) !important;
   margin: auto !important;
   overflow: hidden !important;
@@ -4179,7 +4186,8 @@ img[loading="lazy"] {
 }
 
 .modal-content--book .calendar-frame-shell {
-  height: clamp(300px, calc(100dvh - 155px), 620px) !important;
+  flex: 1 1 auto;
+  height: auto !important;
   min-height: 0 !important;
 }
 
@@ -4201,6 +4209,7 @@ img[loading="lazy"] {
 
   .modal-content--book {
     width: calc(100vw - 0.7rem) !important;
+    height: calc(100dvh - 0.7rem) !important;
     max-height: calc(100dvh - 0.7rem) !important;
     margin: auto !important;
   }
@@ -4226,7 +4235,7 @@ img[loading="lazy"] {
   }
 
   .modal-content--book .calendar-frame-shell {
-    height: clamp(280px, calc(100dvh - 125px), 520px) !important;
+    height: auto !important;
   }
 
   .modal-content--book .calendar-fallback-link {

@@ -270,6 +270,7 @@ function showModal() {
         modal.style.zIndex = '999999';
         modal.scrollTop = 0;
         document.body.classList.add('booking-modal-open');
+        document.documentElement.classList.add('booking-modal-open');
         console.log('Before adding class - display:', window.getComputedStyle(modal).display);
         modal.classList.add('show');
         console.log('After adding class - display:', window.getComputedStyle(modal).display);
@@ -286,6 +287,7 @@ function hideModal() {
         modal.classList.remove('show');
         modal.style.display = '';
         document.body.classList.remove('booking-modal-open');
+        document.documentElement.classList.remove('booking-modal-open');
         console.log('✅ Modal show class removed');
     }
 }
