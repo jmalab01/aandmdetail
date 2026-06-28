@@ -2792,7 +2792,9 @@ h2::after {
   cursor: pointer;
   z-index: 20;
   box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3);
-  transition: box-shadow 0.3s ease, background 0.3s ease;
+  transition: none;
+  white-space: nowrap;
+  margin: 0;
 }
 
 .toggle-before-after:hover {
@@ -2805,101 +2807,40 @@ h2::after {
 }
 
 @media (max-width: 768px) {
-  .gallery-item {
-    position: relative;
-  }
-
   .before-after-images {
     position: relative;
     height: 250px;
     overflow: hidden;
   }
 
-  .before-img,
-  .after-img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.3s ease;
-    top: 0;
-    left: 0;
-  }
-
-  .before-after-container {
-    position: relative;
-  }
-
   .toggle-before-after {
-    position: fixed !important;
-    bottom: 2rem !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    padding: 0.65rem 1.25rem !important;
-    font-size: 0.85rem !important;
-    transition: none !important;
-    will-change: auto !important;
-    margin: 0 !important;
-    z-index: 9999 !important;
-    pointer-events: all !important;
-    display: block !important;
-    background: linear-gradient(135deg, var(--gold), var(--gold-light)) !important;
-    color: #000 !important;
-    border: none !important;
-    border-radius: 50px !important;
-    font-weight: 600 !important;
-    cursor: pointer !important;
-    box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3) !important;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.65rem 1.25rem;
+    font-size: 0.85rem;
+    z-index: 20;
+    transition: none;
   }
 }
 
 @media (max-width: 480px) {
-  .gallery-item {
-    position: relative;
-  }
-
   .before-after-images {
     position: relative;
     height: 200px;
     overflow: hidden;
   }
 
-  .before-img,
-  .after-img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.3s ease;
-    top: 0;
-    left: 0;
-  }
-
-  .before-after-container {
-    position: relative;
-  }
-
   .toggle-before-after {
-    position: fixed !important;
-    bottom: 1.5rem !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    padding: 0.6rem 1rem !important;
-    font-size: 0.8rem !important;
-    transition: none !important;
-    will-change: auto !important;
-    margin: 0 !important;
-    white-space: nowrap !important;
-    z-index: 9999 !important;
-    pointer-events: all !important;
-    display: block !important;
-    background: linear-gradient(135deg, var(--gold), var(--gold-light)) !important;
-    color: #000 !important;
-    border: none !important;
-    border-radius: 50px !important;
-    font-weight: 600 !important;
-    cursor: pointer !important;
-    box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3) !important;
+    position: absolute;
+    bottom: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+    z-index: 20;
+    transition: none;
   }
 }
 
