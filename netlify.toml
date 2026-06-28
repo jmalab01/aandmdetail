@@ -10,29 +10,28 @@
   to = "/index.html"
   status = 200
 
-# Aggressive caching for static assets
+# Static assets cache briefly so site updates show up without a hard refresh.
 [[headers]]
   for = "/assets/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-    Content-Type = "application/octet-stream"
+    Cache-Control = "public, max-age=3600, must-revalidate"
 
-# CSS and JS caching
+# CSS and JS must revalidate because the site uses stable filenames.
 [[headers]]
   for = "/*.css"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=0, must-revalidate"
     
 [[headers]]
   for = "/*.js"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
-# HTML caching (shorter for updates)
+# HTML should always check for new deployments.
 [[headers]]
   for = "/*.html"
   [headers.values]
-    Cache-Control = "public, max-age=3600, must-revalidate"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 # Performance headers
 [[headers]]

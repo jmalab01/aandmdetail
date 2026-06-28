@@ -67,23 +67,21 @@ console.log('Footer button:', footerBtn);
 console.log('Hero button:', heroBtn);
 console.log('Service buttons count:', serviceButtons.length);
 
-// Click handlers for all buttons
+// Click handlers for all buttons - DISABLED
 if (navBtn) {
     navBtn.addEventListener('click', function(e) {
         console.log('🔘 Nav button clicked');
         e.preventDefault();
-        showModal();
     });
-    console.log('✅ Nav button listener added');
+    console.log('✅ Nav button listener added (booking disabled)');
 }
 
 if (footerBtn) {
     footerBtn.addEventListener('click', function(e) {
         console.log('🔘 Footer button clicked');
         e.preventDefault();
-        showModal();
     });
-    console.log('✅ Footer button listener added');
+    console.log('✅ Footer button listener added (booking disabled)');
 }
 
 // Hero button
@@ -91,9 +89,8 @@ if (heroBtn) {
     heroBtn.addEventListener('click', function(e) {
         console.log('🔘 Hero button clicked');
         e.preventDefault();
-        showModal();
     });
-    console.log('✅ Hero button listener added');
+    console.log('✅ Hero button listener added (booking disabled)');
 }
 
 // Service card buttons
@@ -101,10 +98,9 @@ serviceButtons.forEach(function(button, index) {
     button.addEventListener('click', function(e) {
         console.log('🔘 Service button #' + index + ' clicked');
         e.preventDefault();
-        showModal();
     });
 });
-console.log('✅ Service button listeners added');
+console.log('✅ Service button listeners added (booking disabled)');
 
 console.log('✅ Modal.js loaded successfully');
 console.log(`📱 Found ${serviceButtons.length} service book buttons`);

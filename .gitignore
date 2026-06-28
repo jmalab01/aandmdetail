@@ -1,18 +1,11 @@
-# Dependencies
 node_modules/
-package-lock.json
-
-# Logs
-*.log
-
-# OS files
 .DS_Store
+*.log
 .env
 .env.local
-
-# Build outputs
 _site/
-
-# IDE
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
 .vscode/
 .idea/
