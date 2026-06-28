@@ -242,6 +242,7 @@ console.log('🔧 Modal code starting...');
 
 const modal = document.getElementById('bookingModal');
 const closeBtn = document.getElementById('closeBookingModal');
+const bookingCalendarFrame = document.querySelector('.booking-calendar-frame');
 
 console.log('Modal element found:', !!modal);
 if (modal) {
@@ -253,11 +254,13 @@ console.log('Close button found:', !!closeBtn);
 function showModal() {
     console.log('showModal() called');
     if (modal) {
+        if (bookingCalendarFrame && !bookingCalendarFrame.getAttribute('src')) {
+            bookingCalendarFrame.setAttribute('src', bookingCalendarFrame.dataset.src);
+        }
         console.log('Before adding class - display:', window.getComputedStyle(modal).display);
         modal.classList.add('show');
         console.log('After adding class - display:', window.getComputedStyle(modal).display);
         console.log('Class list:', modal.className);
-        document.body.style.overflow = 'hidden';
         console.log('✅ Modal show class added');
     } else {
         console.error('❌ Modal element not found!');
@@ -268,7 +271,6 @@ function hideModal() {
     console.log('hideModal() called');
     if (modal) {
         modal.classList.remove('show');
-        document.body.style.overflow = 'auto';
         console.log('✅ Modal show class removed');
     }
 }

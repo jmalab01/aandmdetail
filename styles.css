@@ -819,6 +819,27 @@ h2::after {
   border-radius: 6px;
 }
 
+.calendar-frame-shell {
+  position: relative;
+  width: 100%;
+  min-height: 650px;
+  overflow: hidden;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.booking-calendar-frame {
+  display: block;
+  width: 100%;
+  min-height: 650px;
+  background: #fff;
+}
+
+.calendar-fallback-link {
+  margin-top: 0.85rem;
+}
+
 .modal-body p {
   color: #333;
 }
@@ -872,6 +893,11 @@ h2::after {
   .modal-body iframe {
     height: 500px;
   }
+
+  .calendar-frame-shell,
+  .booking-calendar-frame {
+    min-height: 500px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -902,6 +928,11 @@ h2::after {
 
   .modal-body iframe {
     height: 400px;
+  }
+
+  .calendar-frame-shell,
+  .booking-calendar-frame {
+    min-height: 400px;
   }
 
   .close {

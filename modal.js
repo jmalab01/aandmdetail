@@ -16,7 +16,6 @@ function showModal() {
     console.log('showModal() called');
     if (modal) {
         modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
         console.log('✅ Modal displayed');
     } else {
         console.error('❌ Modal not found');
@@ -28,7 +27,6 @@ function hideModal() {
     console.log('hideModal() called');
     if (modal) {
         modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
         console.log('✅ Modal hidden');
     }
 }

@@ -28,7 +28,7 @@
     <link rel="dns-prefetch" href="https://www.instagram.com">
     <link rel="dns-prefetch" href="https://www.facebook.com">
     <!-- Critical CSS inline or defer non-critical -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=6">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Preload critical resources -->
@@ -239,7 +239,10 @@
                 <p class="modal-subhead">Schedule your appointment now</p>
             </div>
             <div class="modal-body">
-                <iframe loading="lazy" src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3ikXtil5ItFjxvZd4jUW-LncYoT1erRNSEsFb9gLYbiN1sk6oQsuHjAgc2OGX4Z25xc1csHVbh"></iframe>
+                <div class="calendar-frame-shell">
+                    <iframe class="booking-calendar-frame" title="A&M Detailing booking calendar" data-src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3ikXtil5ItFjxvZd4jUW-LncYoT1erRNSEsFb9gLYbiN1sk6oQsuHjAgc2OGX4Z25xc1csHVbh"></iframe>
+                </div>
+                <a class="calendar-fallback-link" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3ikXtil5ItFjxvZd4jUW-LncYoT1erRNSEsFb9gLYbiN1sk6oQsuHjAgc2OGX4Z25xc1csHVbh" target="_blank" rel="noopener noreferrer">Open Calendar in New Tab</a>
             </div>
         </div>
     </div>
@@ -411,7 +414,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=6"></script>
     <script async src="https://www.tiktok.com/embed.js"></script>
     <!-- EmbedSocial Google Reviews Widget -->
     <script>
