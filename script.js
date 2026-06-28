@@ -77,26 +77,37 @@ if ('IntersectionObserver' in window) {
 }
 
 // ============================================
-// BOOKING MODAL FUNCTIONS
+// BOOKING MODAL FUNCTIONS - COMPREHENSIVE
 // ============================================
 function openBookingModal(e) {
     if (e) {
         e.preventDefault();
+        e.stopPropagation();
     }
+    
     const modal = document.getElementById('bookingModal');
-    console.log('openBookingModal called', modal);
-    if (modal) {
-        modal.style.display = 'flex';
-        modal.classList.add('show');
-        document.body.style.overflow = 'hidden';
-        console.log('✅ Modal opened successfully');
-    } else {
-        console.error('❌ Modal element not found!');
+    
+    if (!modal) {
+        console.error('❌ Modal element with ID "bookingModal" not found!');
+        return;
     }
+    
+    // Force modal to be visible
+    modal.style.display = 'flex !important';
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    
+    // Scroll to top of modal
+    setTimeout(() => {
+        modal.scrollTop = 0;
+    }, 50);
+    
+    console.log('✅ Modal opened successfully');
 }
 
 function closeBookingModalFn() {
     const modal = document.getElementById('bookingModal');
+    
     if (modal) {
         modal.style.display = 'none';
         modal.classList.remove('show');
@@ -105,44 +116,46 @@ function closeBookingModalFn() {
     }
 }
 
-// Close modal when clicking the X button
-const closeBookingModalEl = document.getElementById('closeBookingModal');
-if (closeBookingModalEl) {
-    closeBookingModalEl.addEventListener('click', closeBookingModalFn);
-}
-
-// Close modal when clicking outside the modal content
-window.addEventListener('click', (e) => {
-    const modal = document.getElementById('bookingModal');
-    if (modal && e.target === modal) {
-        closeBookingModalFn();
+// Setup modal event listeners after DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Close button handler
+    const closeBtn = document.getElementById('closeBookingModal');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            closeBookingModalFn();
+        });
     }
-});
-
-// Open modal when clicking "Book Now" button - by ID
-const navBookBtnEl = document.getElementById('navBookBtn');
-if (navBookBtnEl) {
-    navBookBtnEl.addEventListener('click', openBookingModal);
-}
-
-const footerBookBtnEl = document.getElementById('footerBookBtn');
-if (footerBookBtnEl) {
-    footerBookBtnEl.addEventListener('click', openBookingModal);
-}
-
-const ctaBookBtnEl = document.getElementById('ctaBookBtn');
-if (ctaBookBtnEl) {
-    ctaBookBtnEl.addEventListener('click', openBookingModal);
-}
-
-const ctaSocialBookBtnEl = document.getElementById('ctaSocialBookBtn');
-if (ctaSocialBookBtnEl) {
-    ctaSocialBookBtnEl.addEventListener('click', openBookingModal);
-}
-
-// Also handle all buttons with class "footer-book-btn" or "service-book-btn"
-document.querySelectorAll('.footer-book-btn, .service-book-btn').forEach(button => {
-    button.addEventListener('click', openBookingModal);
+    
+    // Close when clicking outside modal content
+    const modal = document.getElementById('bookingModal');
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            // Only close if clicking directly on the modal background, not the content
+            if (e.target === modal) {
+                closeBookingModalFn();
+            }
+        });
+    }
+    
+    // All booking buttons - by ID
+    const bookingButtonIds = ['navBookBtn', 'footerBookBtn', 'ctaBookBtn', 'ctaSocialBookBtn'];
+    bookingButtonIds.forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) {
+            btn.addEventListener('click', openBookingModal);
+        }
+    });
+    
+    // All booking buttons - by class
+    document.querySelectorAll('.footer-book-btn, .service-book-btn, .cta-button').forEach(button => {
+        button.addEventListener('click', function(e) {
+            // Check if it's actually a booking button
+            if (this.textContent.toLowerCase().includes('book')) {
+                openBookingModal(e);
+            }
+        });
+    });
 });
 
 // ============================================
