@@ -121,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.stopPropagation();
             closeBookingModalFn();
         });
+        console.log('✅ Close button listener added');
     }
     
     // Close when clicking outside modal content
@@ -132,6 +133,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 closeBookingModalFn();
             }
         });
+        console.log('✅ Modal background click listener added');
+    } else {
+        console.error('❌ Modal element not found!');
     }
     
     // All booking buttons - by ID
@@ -144,16 +148,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // All booking buttons - by class (main CTA button)
-    const classButtons = document.querySelectorAll('.cta-button, .footer-book-btn, .service-book-btn');
-    classButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            // Open modal for any button with these classes
-            openBookingModal(e);
-        });
-    });
+    // All booking buttons - by class (CTA buttons, footer, service cards)
+    const ctaButtons = document.querySelectorAll('.cta-button');
+    const footerButtons = document.querySelectorAll('.footer-book-btn');
+    const serviceButtons = document.querySelectorAll('.service-book-btn');
     
-    console.log(`✅ Modal setup complete - Found ${classButtons.length} class-based booking buttons`);
+    // Hero CTA button
+    ctaButtons.forEach(button => {
+        // Only attach to buttons that say "Book"
+        if (button.textContent.includes('Book')) {
+            button.addEventListener('click', openBookingModal);
+        }
+    });
+    console.log(`✅ Added listeners to ${ctaButtons.length} CTA buttons`);
+    
+    // Footer book button
+    footerButtons.forEach(button => {
+        button.addEventListener('click', openBookingModal);
+    });
+    console.log(`✅ Added listeners to ${footerButtons.length} footer book buttons`);
+    
+    // Service card book buttons
+    serviceButtons.forEach(button => {
+        button.addEventListener('click', openBookingModal);
+    });
+    console.log(`✅ Added listeners to ${serviceButtons.length} service book buttons`);
+    
+    console.log('🎉 Modal setup complete!');
 });
 
 // ============================================
