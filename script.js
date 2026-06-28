@@ -244,12 +244,19 @@ const modal = document.getElementById('bookingModal');
 const closeBtn = document.getElementById('closeBookingModal');
 
 console.log('Modal element found:', !!modal);
+if (modal) {
+    console.log('Modal classes:', modal.className);
+    console.log('Modal display:', window.getComputedStyle(modal).display);
+}
 console.log('Close button found:', !!closeBtn);
 
 function showModal() {
     console.log('showModal() called');
     if (modal) {
+        console.log('Before adding class - display:', window.getComputedStyle(modal).display);
         modal.classList.add('show');
+        console.log('After adding class - display:', window.getComputedStyle(modal).display);
+        console.log('Class list:', modal.className);
         document.body.style.overflow = 'hidden';
         console.log('✅ Modal show class added');
     } else {
