@@ -303,7 +303,7 @@ document.addEventListener('keydown', function(e) {
 
 // Get all booking buttons.
 const bookingButtons = document.querySelectorAll(
-    '#navBookBtn, #footerBookBtn, #ctaBookBtn, #ctaSocialBookBtn, .service-book-btn, .cta-button[href="#booking"]'
+    '#navBookBtn, #footerBookBtn, #ctaBookBtn, #ctaSocialBookBtn, .service-book-btn, .booking-trigger, .cta-button[href="#booking"]'
 );
 
 console.log('Booking buttons:', bookingButtons.length);

@@ -752,7 +752,7 @@ h2::after {
   z-index: 99999;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .modal.show {
@@ -761,14 +761,15 @@ h2::after {
 
 .modal-content {
   background: #ffffff;
-  width: 90%;
-  max-width: 750px;
-  max-height: 90vh;
-  overflow-y: auto;
+  width: min(94vw, 980px);
+  max-width: 980px;
+  max-height: calc(100dvh - 2rem);
+  overflow: hidden;
   border-radius: 8px;
   position: relative;
   padding: 0;
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-header {
@@ -805,16 +806,17 @@ h2::after {
 }
 
 .modal-body {
-  padding: 20px;
-  min-height: 150px;
+  padding: 14px;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: hidden;
 }
 
 .modal-body iframe {
   width: 100%;
-  height: 650px;
+  height: clamp(360px, calc(100dvh - 190px), 620px);
   border: 0;
   border-radius: 6px;
 }
@@ -822,7 +824,8 @@ h2::after {
 .calendar-frame-shell {
   position: relative;
   width: 100%;
-  min-height: 650px;
+  height: clamp(360px, calc(100dvh - 190px), 620px);
+  min-height: 0;
   overflow: hidden;
   border: 1px solid #e8e8e8;
   border-radius: 8px;
@@ -832,7 +835,8 @@ h2::after {
 .booking-calendar-frame {
   display: block;
   width: 100%;
-  min-height: 650px;
+  height: 100%;
+  min-height: 0;
   background: #fff;
 }
 
@@ -4114,6 +4118,106 @@ img[loading="lazy"] {
     padding: 0.1rem !important;
     max-width: 150px !important;
     max-height: 150px !important;
+  }
+}
+
+/* ===== BOOKING POPUP VIEWPORT FIT ===== */
+.modal.show {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content--book {
+  width: min(94vw, 980px) !important;
+  max-width: 980px !important;
+  max-height: calc(100dvh - 2rem) !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.modal-content--book .modal-header {
+  flex: 0 0 auto;
+  padding: 0.8rem 2.75rem 0.75rem 1rem !important;
+  position: relative;
+}
+
+.modal-content--book .modal-header i {
+  font-size: 1.45rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.modal-content--book .modal-header h2 {
+  font-size: 1.2rem !important;
+  margin: 0 !important;
+}
+
+.modal-content--book .modal-subhead {
+  margin-top: 0.25rem !important;
+}
+
+.modal-content--book .modal-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 0.75rem !important;
+  overflow: hidden;
+}
+
+.modal-content--book .calendar-frame-shell {
+  height: clamp(320px, calc(100dvh - 170px), 620px) !important;
+  min-height: 0 !important;
+}
+
+.modal-content--book .booking-calendar-frame {
+  height: 100% !important;
+  min-height: 0 !important;
+}
+
+.modal-content--book .calendar-fallback-link {
+  flex: 0 0 auto;
+  margin-top: 0.6rem;
+  padding: 0.75rem 1rem;
+}
+
+@media (max-width: 480px) {
+  .modal {
+    padding: 0.35rem !important;
+  }
+
+  .modal-content--book {
+    width: calc(100vw - 0.7rem) !important;
+    max-height: calc(100dvh - 0.7rem) !important;
+  }
+
+  .modal-content--book .modal-header {
+    padding: 0.65rem 2.25rem 0.55rem 0.75rem !important;
+  }
+
+  .modal-content--book .modal-header i {
+    display: none;
+  }
+
+  .modal-content--book .modal-header h2 {
+    font-size: 1rem !important;
+  }
+
+  .modal-content--book .modal-subhead {
+    font-size: 0.75rem !important;
+  }
+
+  .modal-content--book .modal-body {
+    padding: 0.5rem !important;
+  }
+
+  .modal-content--book .calendar-frame-shell {
+    height: clamp(300px, calc(100dvh - 140px), 520px) !important;
+  }
+
+  .modal-content--book .calendar-fallback-link {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.85rem;
   }
 }
 
