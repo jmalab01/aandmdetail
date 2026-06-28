@@ -1371,9 +1371,14 @@ h2::after {
 
 .service-price {
   color: var(--gold);
-  font-weight: 600;
-  font-size: 1.25rem;
+  font-weight: 700;
+  font-size: 1.5rem;
   margin-bottom: 1.5rem;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(201, 162, 39, 0.1);
+  border-left: 3px solid var(--gold);
+  border-radius: 4px;
 }
 
 .service-subtitle {
@@ -2787,6 +2792,7 @@ h2::after {
   cursor: pointer;
   z-index: 20;
   box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .toggle-before-after:hover {
@@ -2801,23 +2807,27 @@ h2::after {
 /* Mobile: Prevent button movement on touch devices */
 @media (max-width: 768px) {
   .toggle-before-after {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0.65rem 1.25rem;
-    font-size: 0.85rem;
+    position: absolute !important;
+    bottom: 1rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    padding: 0.65rem 1.25rem !important;
+    font-size: 0.85rem !important;
+    transition: none !important;
+    will-change: auto !important;
   }
 }
 
 @media (max-width: 480px) {
   .toggle-before-after {
-    position: absolute;
-    bottom: 0.75rem;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0.6rem 1rem;
-    font-size: 0.8rem;
+    position: absolute !important;
+    bottom: 0.75rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    padding: 0.6rem 1rem !important;
+    font-size: 0.8rem !important;
+    transition: none !important;
+    will-change: auto !important;
   }
 }
 
