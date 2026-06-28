@@ -25,12 +25,6 @@ if (splashScreen) {
 const hamburger           = document.querySelector('.hamburger');
 const navLinks            = document.querySelector('.nav-links');
 const navbar              = document.querySelector('.navbar');
-const navBookBtn          = document.getElementById('navBookBtn');
-const footerBookBtn       = document.getElementById('footerBookBtn');
-const ctaBookBtn          = document.getElementById('ctaBookBtn');
-const ctaSocialBookBtn    = document.getElementById('ctaSocialBookBtn');
-const bookingModal        = document.getElementById('bookingModal');
-const closeBookingModal   = document.getElementById('closeBookingModal');
 
 // ============================================
 // UTILITIES & TRACKING
@@ -112,36 +106,42 @@ function closeBookingModalFn() {
 }
 
 // Close modal when clicking the X button
-if (closeBookingModal) {
-    closeBookingModal.addEventListener('click', closeBookingModalFn);
+const closeBookingModalEl = document.getElementById('closeBookingModal');
+if (closeBookingModalEl) {
+    closeBookingModalEl.addEventListener('click', closeBookingModalFn);
 }
 
 // Close modal when clicking outside the modal content
 window.addEventListener('click', (e) => {
-    if (e.target === bookingModal) {
+    const modal = document.getElementById('bookingModal');
+    if (modal && e.target === modal) {
         closeBookingModalFn();
     }
 });
 
-// Open modal when clicking "Book Now" button
-if (navBookBtn) {
-    navBookBtn.addEventListener('click', openBookingModal);
+// Open modal when clicking "Book Now" button - by ID
+const navBookBtnEl = document.getElementById('navBookBtn');
+if (navBookBtnEl) {
+    navBookBtnEl.addEventListener('click', openBookingModal);
 }
 
-if (footerBookBtn) {
-    footerBookBtn.addEventListener('click', openBookingModal);
+const footerBookBtnEl = document.getElementById('footerBookBtn');
+if (footerBookBtnEl) {
+    footerBookBtnEl.addEventListener('click', openBookingModal);
 }
 
-if (ctaBookBtn) {
-    ctaBookBtn.addEventListener('click', openBookingModal);
+const ctaBookBtnEl = document.getElementById('ctaBookBtn');
+if (ctaBookBtnEl) {
+    ctaBookBtnEl.addEventListener('click', openBookingModal);
 }
 
-if (ctaSocialBookBtn) {
-    ctaSocialBookBtn.addEventListener('click', openBookingModal);
+const ctaSocialBookBtnEl = document.getElementById('ctaSocialBookBtn');
+if (ctaSocialBookBtnEl) {
+    ctaSocialBookBtnEl.addEventListener('click', openBookingModal);
 }
 
-// Also handle all buttons with class "footer-book-btn"
-document.querySelectorAll('.footer-book-btn').forEach(button => {
+// Also handle all buttons with class "footer-book-btn" or "service-book-btn"
+document.querySelectorAll('.footer-book-btn, .service-book-btn').forEach(button => {
     button.addEventListener('click', openBookingModal);
 });
 
