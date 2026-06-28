@@ -4085,3 +4085,235 @@ img[loading="lazy"] {
     max-height: 150px !important;
   }
 }
+
+/* ===== SERVICES PAGE LAYOUT CLEANUP ===== */
+body.services-page {
+  overflow-x: hidden;
+}
+
+body.services-page .services-hero {
+  margin-top: 5rem;
+  padding: 5.5rem 1.5rem 3.75rem;
+}
+
+body.services-page .services-hero .container,
+body.services-page .detailed-services .container,
+body.services-page .service-benefits .container,
+body.services-page .work-gallery .container,
+body.services-page .service-cta .container {
+  width: min(100% - 2rem, 1180px);
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+body.services-page .detailed-services {
+  padding: 4rem 0;
+}
+
+body.services-page .services-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+body.services-page .service-detail-card {
+  min-width: 0;
+  height: 100%;
+  padding: 1.6rem;
+  border-radius: 8px;
+}
+
+body.services-page .service-detail-card.featured {
+  transform: none;
+}
+
+body.services-page .service-badge {
+  top: 1rem;
+  right: 1rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+body.services-page .service-detail-icon {
+  min-height: 3.2rem;
+  margin-bottom: 0.85rem;
+  font-size: 2.7rem;
+}
+
+body.services-page .service-detail-card h3 {
+  color: var(--text-white);
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+body.services-page .service-price {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+body.services-page .service-description p,
+body.services-page .service-features li,
+body.services-page .service-note {
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+body.services-page .service-features li {
+  align-items: flex-start;
+  padding: 0.35rem 0;
+}
+
+body.services-page .service-features i {
+  flex: 0 0 auto;
+  margin-top: 0.22rem;
+}
+
+body.services-page .service-book-btn {
+  width: 100%;
+  margin-top: auto;
+}
+
+body.services-page .service-benefits {
+  padding: 4rem 0;
+}
+
+body.services-page .benefits-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+body.services-page .benefit-item {
+  min-width: 0;
+  padding: 1.5rem;
+  border: 1px solid var(--dark-border);
+  border-radius: 8px;
+  background: var(--dark-card);
+}
+
+body.services-page .work-gallery {
+  padding: 4rem 0;
+}
+
+body.services-page .gallery-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+body.services-page .before-after-images {
+  aspect-ratio: 4 / 3;
+  height: auto;
+  min-height: 0;
+}
+
+body.services-page .before-after-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body.services-page .service-cta {
+  padding: 3.5rem 0;
+}
+
+@media (max-width: 1024px) {
+  body.services-page .services-detail-grid,
+  body.services-page .benefits-grid,
+  body.services-page .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  body.services-page .services-hero {
+    margin-top: 4.75rem;
+    padding: 3rem 1rem 2.25rem;
+  }
+
+  body.services-page .services-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  body.services-page .services-hero p {
+    max-width: 34rem;
+    font-size: 1rem;
+  }
+
+  body.services-page .detailed-services,
+  body.services-page .service-benefits,
+  body.services-page .work-gallery {
+    padding: 2.75rem 0;
+  }
+
+  body.services-page .services-detail-grid,
+  body.services-page .benefits-grid,
+  body.services-page .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  body.services-page .service-detail-card {
+    padding: 1.25rem;
+  }
+
+  body.services-page .service-badge {
+    position: static;
+    align-self: flex-start;
+    width: fit-content;
+    margin-bottom: 0.9rem;
+    font-size: 0.72rem;
+  }
+
+  body.services-page .service-detail-icon {
+    min-height: 0;
+    font-size: 2.35rem;
+  }
+
+  body.services-page .service-benefits h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.9rem;
+  }
+
+  body.services-page .service-cta {
+    padding: 2.75rem 1rem;
+  }
+
+  body.services-page .service-cta h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body.services-page .services-hero .container,
+  body.services-page .detailed-services .container,
+  body.services-page .service-benefits .container,
+  body.services-page .work-gallery .container,
+  body.services-page .service-cta .container {
+    width: min(100% - 1.5rem, 1180px);
+  }
+
+  body.services-page .services-hero {
+    margin-top: 4.5rem;
+  }
+
+  body.services-page .services-hero h1 {
+    font-size: 1.9rem;
+  }
+
+  body.services-page .service-detail-card h3 {
+    font-size: 1.18rem;
+  }
+
+  body.services-page .service-description p,
+  body.services-page .service-features li,
+  body.services-page .service-note {
+    font-size: 0.88rem;
+  }
+
+  body.services-page .before-after-images {
+    aspect-ratio: 1 / 1;
+  }
+}
