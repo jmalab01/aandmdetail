@@ -325,8 +325,10 @@ function isBookingTrigger(element) {
         return true;
     }
 
+    const href = element.getAttribute('href');
     const text = (element.textContent || '').trim().toLowerCase();
-    return element.matches('a, button, [role="button"]') && (text.includes('book') || text.includes('custom quote'));
+    const isLocalCommand = element.matches('button, [role="button"]') || href === '#' || href === '';
+    return isLocalCommand && (text.includes('book') || text.includes('custom quote'));
 }
 
 document.addEventListener('click', function(e) {
