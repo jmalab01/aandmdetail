@@ -248,6 +248,7 @@ console.log('Modal element found:', !!modal);
 if (modal) {
     console.log('Modal classes:', modal.className);
     console.log('Modal display:', window.getComputedStyle(modal).display);
+    document.body.appendChild(modal);
 }
 console.log('Close button found:', !!closeBtn);
 
@@ -258,11 +259,17 @@ function showModal() {
             bookingCalendarFrame.setAttribute('src', bookingCalendarFrame.dataset.src);
         }
         modal.style.position = 'fixed';
+        modal.style.top = '0';
+        modal.style.left = '0';
+        modal.style.width = '100vw';
+        modal.style.height = '100dvh';
         modal.style.inset = '0';
         modal.style.display = 'flex';
         modal.style.alignItems = 'flex-start';
         modal.style.justifyContent = 'center';
+        modal.style.zIndex = '999999';
         modal.scrollTop = 0;
+        document.body.classList.add('booking-modal-open');
         console.log('Before adding class - display:', window.getComputedStyle(modal).display);
         modal.classList.add('show');
         console.log('After adding class - display:', window.getComputedStyle(modal).display);
@@ -278,6 +285,7 @@ function hideModal() {
     if (modal) {
         modal.classList.remove('show');
         modal.style.display = '';
+        document.body.classList.remove('booking-modal-open');
         console.log('✅ Modal show class removed');
     }
 }
