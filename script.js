@@ -299,40 +299,20 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// Get all buttons
-const navBtn = document.getElementById('navBookBtn');
-const footerBtn = document.getElementById('footerBookBtn');
-const heroBtn = document.querySelector('.cta-button');
-const serviceButtons = document.querySelectorAll('.service-book-btn');
+// Get all booking buttons.
+const bookingButtons = document.querySelectorAll(
+    '#navBookBtn, #footerBookBtn, #ctaBookBtn, #ctaSocialBookBtn, .service-book-btn, .cta-button[href="#booking"]'
+);
 
-console.log('Nav button:', !!navBtn);
-console.log('Footer button:', !!footerBtn);
-console.log('Hero button:', !!heroBtn);
-console.log('Service buttons:', serviceButtons.length);
+console.log('Booking buttons:', bookingButtons.length);
 
-// Add click handlers - scroll to booking section
-function scrollToBooking(e) {
+function openBookingModal(e) {
     e.preventDefault();
-    var bookingSection = document.getElementById('booking');
-    if (bookingSection) {
-        bookingSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    showModal();
 }
 
-if (navBtn) {
-    navBtn.addEventListener('click', scrollToBooking);
-}
-
-if (footerBtn) {
-    footerBtn.addEventListener('click', scrollToBooking);
-}
-
-if (heroBtn) {
-    heroBtn.addEventListener('click', scrollToBooking);
-}
-
-serviceButtons.forEach(function(btn) {
-    btn.addEventListener('click', scrollToBooking);
+bookingButtons.forEach(function(button) {
+    button.addEventListener('click', openBookingModal);
 });
 
 console.log('✅ A&M Detailing loaded successfully!');
