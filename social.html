@@ -225,49 +225,8 @@
 
     <script src="script.js"></script>
     <script>
-        // Social page booking modal function
-        function openBookingModal(e) {
-            if (e) {
-                e.preventDefault();
-            }
-            const bookingModal = document.getElementById('bookingModal');
-            if (bookingModal) {
-                bookingModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        // Add click handlers for all booking buttons
+        // Video persistence - resume video where it left off
         document.addEventListener('DOMContentLoaded', function() {
-            const navBookBtn = document.getElementById('navBookBtn');
-            const ctaSocialBookBtn = document.getElementById('ctaSocialBookBtn');
-            const footerBookBtn = document.getElementById('footerBookBtn');
-            const closeBookingModal = document.getElementById('closeBookingModal');
-            const bookingModal = document.getElementById('bookingModal');
-
-            if (navBookBtn) navBookBtn.addEventListener('click', openBookingModal);
-            if (ctaSocialBookBtn) ctaSocialBookBtn.addEventListener('click', openBookingModal);
-            if (footerBookBtn) footerBookBtn.addEventListener('click', openBookingModal);
-            
-            if (closeBookingModal) {
-                closeBookingModal.addEventListener('click', function() {
-                    if (bookingModal) {
-                        bookingModal.style.display = 'none';
-                        document.body.style.overflow = '';
-                    }
-                });
-            }
-
-            if (bookingModal) {
-                bookingModal.addEventListener('click', function(e) {
-                    if (e.target === bookingModal) {
-                        bookingModal.style.display = 'none';
-                        document.body.style.overflow = '';
-                    }
-                });
-            }
-
-            // Video persistence - resume video where it left off
             const video = document.getElementById('featuredVideo');
             if (video) {
                 // Toggle play/pause on video click
