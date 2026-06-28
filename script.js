@@ -249,9 +249,9 @@ console.log('Close button found:', !!closeBtn);
 function showModal() {
     console.log('showModal() called');
     if (modal) {
-        modal.style.display = 'flex';
+        modal.classList.add('show');
         document.body.style.overflow = 'hidden';
-        console.log('✅ Modal displayed with flex');
+        console.log('✅ Modal show class added');
     } else {
         console.error('❌ Modal element not found!');
     }
@@ -260,9 +260,9 @@ function showModal() {
 function hideModal() {
     console.log('hideModal() called');
     if (modal) {
-        modal.style.display = 'none';
+        modal.classList.remove('show');
         document.body.style.overflow = 'auto';
-        console.log('✅ Modal hidden');
+        console.log('✅ Modal show class removed');
     }
 }
 
@@ -286,7 +286,7 @@ if (modal) {
 
 // Escape key
 document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && modal && modal.style.display === 'flex') {
+    if (e.key === 'Escape' && modal && modal.classList.contains('show')) {
         console.log('Escape key pressed');
         hideModal();
     }
