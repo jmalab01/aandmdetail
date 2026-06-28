@@ -235,4 +235,105 @@ document.querySelectorAll('.toggle-before-after').forEach(button => {
     });
 });
 
+// ============================================
+// BOOKING MODAL
+// ============================================
+console.log('🔧 Modal code starting...');
+
+const modal = document.getElementById('bookingModal');
+const closeBtn = document.getElementById('closeBookingModal');
+
+console.log('Modal element found:', !!modal);
+console.log('Close button found:', !!closeBtn);
+
+function showModal() {
+    console.log('showModal() called');
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        console.log('✅ Modal displayed with flex');
+    } else {
+        console.error('❌ Modal element not found!');
+    }
+}
+
+function hideModal() {
+    console.log('hideModal() called');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        console.log('✅ Modal hidden');
+    }
+}
+
+// Close button
+if (closeBtn) {
+    closeBtn.addEventListener('click', function(e) {
+        console.log('Close button clicked');
+        hideModal();
+    });
+}
+
+// Click outside modal
+if (modal) {
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            console.log('Clicked outside modal');
+            hideModal();
+        }
+    });
+}
+
+// Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal && modal.style.display === 'flex') {
+        console.log('Escape key pressed');
+        hideModal();
+    }
+});
+
+// Get all buttons
+const navBtn = document.getElementById('navBookBtn');
+const footerBtn = document.getElementById('footerBookBtn');
+const heroBtn = document.querySelector('.cta-button');
+const serviceButtons = document.querySelectorAll('.service-book-btn');
+
+console.log('Nav button:', !!navBtn);
+console.log('Footer button:', !!footerBtn);
+console.log('Hero button:', !!heroBtn);
+console.log('Service buttons:', serviceButtons.length);
+
+// Add click handlers
+if (navBtn) {
+    navBtn.addEventListener('click', function(e) {
+        console.log('Nav book button clicked');
+        e.preventDefault();
+        showModal();
+    });
+}
+
+if (footerBtn) {
+    footerBtn.addEventListener('click', function(e) {
+        console.log('Footer book button clicked');
+        e.preventDefault();
+        showModal();
+    });
+}
+
+if (heroBtn) {
+    heroBtn.addEventListener('click', function(e) {
+        console.log('Hero button clicked');
+        e.preventDefault();
+        showModal();
+    });
+}
+
+serviceButtons.forEach(function(btn, idx) {
+    btn.addEventListener('click', function(e) {
+        console.log('Service button ' + idx + ' clicked');
+        e.preventDefault();
+        showModal();
+    });
+});
+
 console.log('✅ A&M Detailing loaded successfully!');
