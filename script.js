@@ -1,20 +1,15 @@
 // ============================================
-// SPLASH SCREEN ANIMATION
+// SPLASH SCREEN
 // ============================================
-// Only show splash screen on first page load, never again
 const splashScreen = document.getElementById('splashScreen');
 if (splashScreen) {
-    // Check if this is the first visit ever
     const splashShownEver = localStorage.getItem('splashShownEver');
-    
     if (!splashShownEver) {
-        // First time ever - show splash screen
         localStorage.setItem('splashShownEver', 'true');
         setTimeout(() => {
             splashScreen.style.display = 'none';
         }, 4000);
     } else {
-        // Already shown before - hide it immediately
         splashScreen.style.display = 'none';
     }
 }
@@ -25,12 +20,6 @@ if (splashScreen) {
 const hamburger           = document.querySelector('.hamburger');
 const navLinks            = document.querySelector('.nav-links');
 const navbar              = document.querySelector('.navbar');
-const navBookBtn          = document.getElementById('navBookBtn');
-const footerBookBtn       = document.getElementById('footerBookBtn');
-const ctaBookBtn          = document.getElementById('ctaBookBtn');
-const ctaSocialBookBtn    = document.getElementById('ctaSocialBookBtn');
-const bookingModal        = document.getElementById('bookingModal');
-const closeBookingModal   = document.getElementById('closeBookingModal');
 
 // ============================================
 // UTILITIES & TRACKING
@@ -83,62 +72,9 @@ if ('IntersectionObserver' in window) {
 }
 
 // ============================================
-// BOOKING MODAL FUNCTIONS
+// NAVIGATION
 // ============================================
-function openBookingModal(e) {
-    if (e) {
-        e.preventDefault();
-    }
-    if (bookingModal) {
-        bookingModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
-}
 
-function closeBookingModalFn() {
-    if (bookingModal) {
-        bookingModal.style.display = 'none';
-        document.body.style.overflow = '';
-    }
-}
-
-// Close modal when clicking the X button
-if (closeBookingModal) {
-    closeBookingModal.addEventListener('click', closeBookingModalFn);
-}
-
-// Close modal when clicking outside the modal content
-window.addEventListener('click', (e) => {
-    if (e.target === bookingModal) {
-        closeBookingModalFn();
-    }
-});
-
-// Open modal when clicking "Book Now" button
-if (navBookBtn) {
-    navBookBtn.addEventListener('click', openBookingModal);
-}
-
-if (footerBookBtn) {
-    footerBookBtn.addEventListener('click', openBookingModal);
-}
-
-if (ctaBookBtn) {
-    ctaBookBtn.addEventListener('click', openBookingModal);
-}
-
-if (ctaSocialBookBtn) {
-    ctaSocialBookBtn.addEventListener('click', openBookingModal);
-}
-
-// Also handle all buttons with class "footer-book-btn"
-document.querySelectorAll('.footer-book-btn').forEach(button => {
-    button.addEventListener('click', openBookingModal);
-});
-
-// ============================================
-// HAMBURGER MENU & NAVIGATION
-// ============================================
 if (hamburger) {
     hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
@@ -296,6 +232,114 @@ document.querySelectorAll('.toggle-before-after').forEach(button => {
             afterImg.style.opacity = '0';
             label.textContent = 'Show After';
         }
+    });
+});
+
+// ============================================
+// BOOKING MODAL
+// ============================================
+console.log('🔧 Modal code starting...');
+
+const modal = document.getElementById('bookingModal');
+const closeBtn = document.getElementById('closeBookingModal');
+
+console.log('Modal element found:', !!modal);
+if (modal) {
+    console.log('Modal classes:', modal.className);
+    console.log('Modal display:', window.getComputedStyle(modal).display);
+}
+console.log('Close button found:', !!closeBtn);
+
+function showModal() {
+    console.log('showModal() called');
+    if (modal) {
+        console.log('Before adding class - display:', window.getComputedStyle(modal).display);
+        modal.classList.add('show');
+        console.log('After adding class - display:', window.getComputedStyle(modal).display);
+        console.log('Class list:', modal.className);
+        document.body.style.overflow = 'hidden';
+        console.log('✅ Modal show class added');
+    } else {
+        console.error('❌ Modal element not found!');
+    }
+}
+
+function hideModal() {
+    console.log('hideModal() called');
+    if (modal) {
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+        console.log('✅ Modal show class removed');
+    }
+}
+
+// Close button
+if (closeBtn) {
+    closeBtn.addEventListener('click', function(e) {
+        console.log('Close button clicked');
+        hideModal();
+    });
+}
+
+// Click outside modal
+if (modal) {
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            console.log('Clicked outside modal');
+            hideModal();
+        }
+    });
+}
+
+// Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal && modal.classList.contains('show')) {
+        console.log('Escape key pressed');
+        hideModal();
+    }
+});
+
+// Get all buttons
+const navBtn = document.getElementById('navBookBtn');
+const footerBtn = document.getElementById('footerBookBtn');
+const heroBtn = document.querySelector('.cta-button');
+const serviceButtons = document.querySelectorAll('.service-book-btn');
+
+console.log('Nav button:', !!navBtn);
+console.log('Footer button:', !!footerBtn);
+console.log('Hero button:', !!heroBtn);
+console.log('Service buttons:', serviceButtons.length);
+
+// Add click handlers
+if (navBtn) {
+    navBtn.addEventListener('click', function(e) {
+        console.log('Nav book button clicked');
+        e.preventDefault();
+        showModal();
+    });
+}
+
+if (footerBtn) {
+    footerBtn.addEventListener('click', function(e) {
+        console.log('Footer book button clicked');
+        e.preventDefault();
+        showModal();
+    });
+}
+
+if (heroBtn) {
+    heroBtn.addEventListener('click', function(e) {
+        console.log('Hero button clicked');
+        e.preventDefault();
+        showModal();
+    });
+}
+
+serviceButtons.forEach(function(btn, idx) {
+    btn.addEventListener('click', function(e) {
+        console.log('Service button ' + idx + ' clicked');
+        e.preventDefault();
+        showModal();
     });
 });
 

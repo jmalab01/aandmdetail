@@ -6,8 +6,18 @@
     <meta name="description" content="A&M Detailing Social Media - Follow us on Instagram, Facebook, TikTok and more">
     <meta name="keywords" content="A&M Detailing, social media, Instagram, Facebook, TikTok, before after, detailing work">
     <title>Social Media - A&M Detailing | Follow Our Work</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/images/logo/A&M.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="assets/images/logo/A&M.jpg">
+    <link rel="apple-touch-icon" href="assets/images/logo/A&M.jpg">
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.instagram.com">
+    <link rel="preconnect" href="https://www.facebook.com">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -19,13 +29,13 @@
                 <span class="brand-name">A&M Detailing</span>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="index.html#reviews">Reviews</a></li>
+                <li><a href="index#home">Home</a></li>
+                <li><a href="services">Services</a></li>
+                <li><a href="index#reviews">Reviews</a></li>
                 <li><a href="#" id="navBookBtn" class="nav-book-btn">Book Now</a></li>
                 <li><a href="#social-feeds">Social</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-                <li><a href="index.html#service-areas">Service Areas</a></li>
+                <li><a href="index#contact">Contact</a></li>
+                <li><a href="index#service-areas">Service Areas</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -162,11 +172,11 @@
             <div class="modal-header">
                 <i class="fas fa-calendar-check"></i>
                 <h2>Book Your Service</h2>
-                <p class="modal-subhead">Schedule your appointment below</p>
+                <p class="modal-subhead">Schedule your appointment now</p>
             </div>
             <div class="modal-body">
-                <!-- Google Calendar Appointment Scheduling Widget -->
-                <iframe loading="lazy" src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3ikXtil5ItFjxvZd4jUW-LncYoT1erRNSEsFb9gLYbiN1sk6oQsuHjAgc2OGX4Z25xc1csHVbh" style="border: 0; width: 100%; height: 600px;"></iframe>
+                <p style="text-align: center; color: #333; margin-bottom: 1.5rem; font-size: 1rem;">Click the button below to open our booking calendar and select your preferred date and time.</p>
+                <a href="https://calendar.google.com/calendar/appointments/schedules/NE521DfGkv7tBzP89" target="_blank" rel="noopener noreferrer" style="display: inline-block; width: 100%; padding: 1rem 2rem; background: var(--gold); color: #000; text-align: center; border-radius: 8px; font-weight: 600; text-decoration: none; cursor: pointer; font-size: 1rem;">Open Booking Calendar</a>
             </div>
         </div>
     </div>
@@ -213,51 +223,10 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=3"></script>
     <script>
-        // Social page booking modal function
-        function openBookingModal(e) {
-            if (e) {
-                e.preventDefault();
-            }
-            const bookingModal = document.getElementById('bookingModal');
-            if (bookingModal) {
-                bookingModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        // Add click handlers for all booking buttons
+        // Video persistence - resume video where it left off
         document.addEventListener('DOMContentLoaded', function() {
-            const navBookBtn = document.getElementById('navBookBtn');
-            const ctaSocialBookBtn = document.getElementById('ctaSocialBookBtn');
-            const footerBookBtn = document.getElementById('footerBookBtn');
-            const closeBookingModal = document.getElementById('closeBookingModal');
-            const bookingModal = document.getElementById('bookingModal');
-
-            if (navBookBtn) navBookBtn.addEventListener('click', openBookingModal);
-            if (ctaSocialBookBtn) ctaSocialBookBtn.addEventListener('click', openBookingModal);
-            if (footerBookBtn) footerBookBtn.addEventListener('click', openBookingModal);
-            
-            if (closeBookingModal) {
-                closeBookingModal.addEventListener('click', function() {
-                    if (bookingModal) {
-                        bookingModal.style.display = 'none';
-                        document.body.style.overflow = '';
-                    }
-                });
-            }
-
-            if (bookingModal) {
-                bookingModal.addEventListener('click', function(e) {
-                    if (e.target === bookingModal) {
-                        bookingModal.style.display = 'none';
-                        document.body.style.overflow = '';
-                    }
-                });
-            }
-
-            // Video persistence - resume video where it left off
             const video = document.getElementById('featuredVideo');
             if (video) {
                 // Toggle play/pause on video click
