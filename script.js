@@ -90,6 +90,7 @@ function openBookingModal(e) {
         e.preventDefault();
     }
     if (bookingModal) {
+        bookingModal.classList.add('show');
         bookingModal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     }
@@ -97,6 +98,7 @@ function openBookingModal(e) {
 
 function closeBookingModalFn() {
     if (bookingModal) {
+        bookingModal.classList.remove('show');
         bookingModal.style.display = 'none';
         document.body.style.overflow = '';
     }
