@@ -265,7 +265,7 @@ function showModal() {
         modal.style.height = '100dvh';
         modal.style.inset = '0';
         modal.style.display = 'flex';
-        modal.style.alignItems = 'center';
+        modal.style.alignItems = 'flex-start';
         modal.style.justifyContent = 'center';
         modal.style.zIndex = '999999';
         modal.scrollTop = 0;
@@ -316,7 +316,8 @@ document.addEventListener('keydown', function(e) {
 
 function openBookingModal(e) {
     e.preventDefault();
-    showModal();
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    window.setTimeout(showModal, 250);
 }
 
 function isBookingTrigger(element) {
