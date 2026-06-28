@@ -4135,7 +4135,7 @@ img[loading="lazy"] {
 /* ===== BOOKING POPUP VIEWPORT FIT ===== */
 .modal.show {
   display: flex !important;
-  align-items: flex-start !important;
+  align-items: center !important;
   justify-content: center !important;
   overflow: hidden !important;
 }
@@ -4144,7 +4144,7 @@ img[loading="lazy"] {
   width: min(94vw, 980px) !important;
   max-width: 980px !important;
   max-height: calc(100dvh - 1rem) !important;
-  margin-top: max(0.5rem, env(safe-area-inset-top)) !important;
+  margin: auto !important;
   overflow: hidden !important;
   padding: 0 !important;
   display: flex !important;
@@ -4202,7 +4202,7 @@ img[loading="lazy"] {
   .modal-content--book {
     width: calc(100vw - 0.7rem) !important;
     max-height: calc(100dvh - 0.7rem) !important;
-    margin-top: max(0.35rem, env(safe-area-inset-top)) !important;
+    margin: auto !important;
   }
 
   .modal-content--book .modal-header {

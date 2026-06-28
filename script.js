@@ -265,7 +265,7 @@ function showModal() {
         modal.style.height = '100dvh';
         modal.style.inset = '0';
         modal.style.display = 'flex';
-        modal.style.alignItems = 'flex-start';
+        modal.style.alignItems = 'center';
         modal.style.justifyContent = 'center';
         modal.style.zIndex = '999999';
         modal.scrollTop = 0;
@@ -316,20 +316,26 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// Get all booking buttons.
-const bookingButtons = document.querySelectorAll(
-    '#navBookBtn, #footerBookBtn, #ctaBookBtn, #ctaSocialBookBtn, .service-book-btn, .booking-trigger'
-);
-
-console.log('Booking buttons:', bookingButtons.length);
-
 function openBookingModal(e) {
     e.preventDefault();
     showModal();
 }
 
-bookingButtons.forEach(function(button) {
-    button.addEventListener('click', openBookingModal);
+function isBookingTrigger(element) {
+    if (!element) return false;
+    if (element.matches('#navBookBtn, #footerBookBtn, #ctaBookBtn, #ctaSocialBookBtn, .service-book-btn, .booking-trigger, .nav-book-btn, .footer-book-btn')) {
+        return true;
+    }
+
+    const text = (element.textContent || '').trim().toLowerCase();
+    return element.matches('a, button, [role="button"]') && (text.includes('book') || text.includes('custom quote'));
+}
+
+document.addEventListener('click', function(e) {
+    const trigger = e.target.closest('a, button, [role="button"]');
+    if (isBookingTrigger(trigger)) {
+        openBookingModal(e);
+    }
 });
 
 console.log('✅ A&M Detailing loaded successfully!');
