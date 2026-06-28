@@ -2804,8 +2804,13 @@ h2::after {
   box-shadow: 0 4px 12px rgba(201, 162, 39, 0.4);
 }
 
-/* Mobile: Prevent button movement on touch devices */
 @media (max-width: 768px) {
+  .before-after-images {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+  }
+
   .toggle-before-after {
     position: absolute !important;
     bottom: 1rem !important;
@@ -2815,10 +2820,17 @@ h2::after {
     font-size: 0.85rem !important;
     transition: none !important;
     will-change: auto !important;
+    margin: 0 !important;
   }
 }
 
 @media (max-width: 480px) {
+  .before-after-images {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
   .toggle-before-after {
     position: absolute !important;
     bottom: 0.75rem !important;
@@ -2828,6 +2840,8 @@ h2::after {
     font-size: 0.8rem !important;
     transition: none !important;
     will-change: auto !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
   }
 }
 
